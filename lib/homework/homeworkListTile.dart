@@ -8,6 +8,7 @@ import 'detailedView.dart';
 import 'package:annette_app/fundamentals/task.dart';
 import '../miscellaneous-files/manageNotifications.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import '../data/design.dart';
 
 /// Diese Klasse kann den Listen-Eintrag einer Hausaufgabe anzeigen. Die Aufgabe sowie die
 /// Id der position in der Liste werden neben den Funktionen, welche bei weiteren Aktionen wie
@@ -117,6 +118,8 @@ class _HomeworkListTileState extends State<HomeworkListTile> {
       }
     }
   }
+
+  
 
   /// Erstellen eines Listen-Elements, welche eine Hausaufgabe anzeigen kann.
   /// Im Titel steht das Fach, im Untertitel die näheren Informationen.

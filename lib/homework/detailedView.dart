@@ -8,6 +8,7 @@ import '../miscellaneous-files/manageNotifications.dart';
 import 'package:annette_app/fundamentals/task.dart';
 import '../miscellaneous-files/parseTime.dart';
 import 'addDialog.dart';
+import '../data/design.dart';
 
 /// Diese Datei beinhaltet die Detailansicht einer Hausaufgabe,
 /// bei der alle Informationen bezüglich der Aufgabe angezeigt werden können.
@@ -50,7 +51,7 @@ class DetailedViewState extends State<DetailedView> {
   static double timePickerHeight = 150;
   static double timePickerWidth = 280;
   static BoxDecoration timePickerBorder = BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      borderRadius: BorderRadius.circular(Design.getBorderGroesse()),
       border: Border.all(
           width: 1
       )
@@ -71,7 +72,7 @@ class DetailedViewState extends State<DetailedView> {
           return Builder(builder: (context) {
             return Dialog(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+                  borderRadius: BorderRadius.circular(Design.borderGroesse),
                 ),
                 child: Container(
                     constraints: BoxConstraints(
@@ -397,7 +398,7 @@ class DetailedViewState extends State<DetailedView> {
                     ? Colors.white
                     : Colors.grey[800],
                 border: Border.all(color: Colors.black45, width: 1.0),
-                borderRadius: BorderRadius.circular(5)),
+                borderRadius: BorderRadius.circular(Design.borderGroesse)),
             padding: EdgeInsets.all(Design.standardPagePadding),
             margin: EdgeInsets.all(Design.standardPagePadding),
             child: Center(
@@ -433,7 +434,7 @@ class DetailedViewState extends State<DetailedView> {
                                 ? Colors.white
                                 : Colors.grey[800],
                         border: Border.all(color: Colors.black45, width: 1.0),
-                        borderRadius: BorderRadius.circular(5)),
+                        borderRadius: BorderRadius.circular(Design.borderGroesse)),
                     padding: EdgeInsets.all(5.0),
                     margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                     child: TextButton(
@@ -468,7 +469,7 @@ class DetailedViewState extends State<DetailedView> {
                           ? Colors.white
                           : Colors.grey[800],
                       border: Border.all(color: Colors.black45, width: 1.0),
-                      borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(Design.borderGroesse)),
                   padding: EdgeInsets.all(5.0),
                   margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                   child: TextButton(

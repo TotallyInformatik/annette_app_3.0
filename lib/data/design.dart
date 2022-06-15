@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 
 class Design {
   static double standardPagePadding = 10.0;
+  static double borderGroesse = 20.0;   //borderRadius für homework Dateien
+  static var font = "Montserrat";       //noch nicht genutzt
 
-
+  static double getBorderGroesse(){
+    return borderGroesse;
+  }
+  
   static ThemeData darkTheme = ThemeData(
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: ButtonStyle(

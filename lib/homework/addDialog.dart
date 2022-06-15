@@ -12,7 +12,7 @@ import 'package:annette_app/miscellaneous-files/manageNotifications.dart';
 import 'package:annette_app/miscellaneous-files/currentValues.dart';
 import 'package:flutter/services.dart';
 import '../data/lessonStartTimes.dart';
-
+import '../data/design.dart';
 ///Diese Klasse beinhaltet das Dialogfenster und alle notwendigen Funktionen zum hinzufügen einer neuen Hausaufgabe.
 class AddDialog extends StatefulWidget {
 
@@ -280,7 +280,7 @@ class _AddDialogState extends State<AddDialog> {
                       color: (Theme.of(context).brightness == Brightness.dark)
                           ? Color.fromRGBO(50, 50, 50, 1)
                           : Colors.white,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(Design.getBorderGroesse()),
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: DropdownButton<String>(
@@ -340,7 +340,7 @@ class _AddDialogState extends State<AddDialog> {
                       color: (Theme.of(context).brightness == Brightness.dark)
                           ? Color.fromRGBO(50, 50, 50, 1)
                           : Colors.white,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(Design.getBorderGroesse()),
                     ),
                     clearButtonMode: OverlayVisibilityMode.editing,
                     maxLines: AddDialog.notesLines,
@@ -377,7 +377,7 @@ class _AddDialogState extends State<AddDialog> {
                             Border.all(
                                 color: (Theme.of(context).brightness == Brightness.dark) ? Colors.grey : Theme.of(context).dividerColor
                             ),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(Design.getBorderGroesse()),
                       ),
                       padding: EdgeInsets.all(10),
                       child: Column(

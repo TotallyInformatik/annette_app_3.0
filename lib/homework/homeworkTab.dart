@@ -7,6 +7,7 @@ import 'package:annette_app/fundamentals/task.dart';
 import 'package:annette_app/database/taskDbInteraction.dart';
 import 'package:annette_app/homework/detailedView.dart';
 import 'dart:async';
+import '../data/design.dart';
 
 /// Diese Klasse beinhaltet den Tab mit der Hausaufgaben-Listen-Ansicht.
 /// App => Menüleiste => Hausaufgaben
@@ -383,7 +384,6 @@ class HomeworkTabState extends State<HomeworkTab> {
     storage = GetStorage();
     load();
   }
-
   /// Dieses Widget (Container) gibt alle Hausaufgaben in einer Liste aus.
   /// Klickt man auf eine Hausaufgabe, öffnet sich eine Detailansicht.
   /// Wenn sich das Gerät im Querformat befindet, wird die Detailansicht paralell im
@@ -400,9 +400,11 @@ class HomeworkTabState extends State<HomeworkTab> {
               child: Column(children: [
                 Container(
                   //height: 40,
-                  margin: EdgeInsets.only(bottom: 7),
-                  padding: EdgeInsets.only(bottom: 7, right: 7),
+                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(Design.getBorderGroesse()),
                     border: Border(
                       bottom: BorderSide(
                         width: 1,
