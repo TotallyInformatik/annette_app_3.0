@@ -1,11 +1,12 @@
 import 'dart:ui';
 import 'package:annette_app/data/assets.dart';
 import 'package:annette_app/miscellaneous-files/setClass.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:page_view_indicators/circle_page_indicator.dart';
+
+import '../data/design.dart';
 
 class IntroductionScreen extends StatefulWidget {
   final VoidCallback onFinished;
@@ -48,6 +49,12 @@ class IntroductionScreenState extends State<IntroductionScreen> {
       text:
           'Dein individueller Stundenplan inklusive Pausenzeiten. Dank automatischer Erkennung der aktuellen Stunde lässt sich der Stundenplan schnell ablesen, und du musst nicht erst deinen Kurs in der großen Übersicht suchen.',
     ),
+    ImageTitleTextModel(
+      demoImage: false,
+      //image: AssetImage(assetPaths.iconImagePath),
+      title: 'Annette Entwickelt Software',
+      text: 'Diese App wird von der Annette-Entwickelt-Software-AG mit Leidenschaft entwickelt :).'
+    )
   ];
   final pageController = PageController();
   final _currentPageNotifier = ValueNotifier<int>(0);
@@ -108,7 +115,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                               color: (Theme.of(context).brightness ==
                                       Brightness.dark)
                                   ? Theme.of(context).accentColor
-                                  : Colors.blue,
+                                  : Design.annetteColor,
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
                             ),
@@ -145,7 +152,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: CirclePageIndicator(
-                        selectedDotColor: Colors.blue,
+                        selectedDotColor: Design.annetteColor,
                         size: 13,
                         selectedSize: 13,
                         // dotSpacing: 15,
@@ -186,14 +193,14 @@ class IntroductionScreenState extends State<IntroductionScreen> {
 }
 
 class ImageTitleTextModel extends StatelessWidget {
-  final ImageProvider<Object> image;
+  final ImageProvider<Object>? image;
   final String title;
   final String text;
   final bool demoImage;
 
   const ImageTitleTextModel(
       {Key? key,
-      required this.image,
+      this.image,
       required this.title,
       required this.text,
       required this.demoImage})
@@ -210,23 +217,24 @@ class ImageTitleTextModel extends StatelessWidget {
             Spacer(),
             Container(
               margin: EdgeInsets.only(bottom: 20),
-              child: Container(
+              child: image != null ?
+              Container(
                 width: (demoImage) ? 350 : 200,
                 height: (demoImage) ? 350 : 200,
                 decoration: BoxDecoration(
                   border: Border.all(
                       color: (Theme.of(context).brightness == Brightness.dark &&
                               demoImage)
-                          ? Colors.blue
+                          ? Design.annetteColor
                           : Colors.grey,
                       width: (Theme.of(context).brightness == Brightness.dark)
                           ? 2
                           : 1),
                   borderRadius: BorderRadius.circular(20),
                   shape: BoxShape.rectangle,
-                  image: DecorationImage(image: image, fit: BoxFit.fitHeight),
+                  image: DecorationImage(image: image!, fit: BoxFit.fitHeight),
                 ),
-              ),
+              ): Container()
             ),
             Container(
               margin: EdgeInsets.only(

@@ -14,6 +14,10 @@ class ExamPlan extends StatefulWidget {
 }
 
 class _ExamPlanState extends State<ExamPlan> {
+
+  /// die Klausurplan Dateien sind immer im Format klausur_ef.pdf, oder klausur_q1.pdf oder klausur_q2.pdf
+
+
   late File file;
   late String currentClass;
   int selectedClass = 0;
@@ -144,7 +148,7 @@ class _ExamPlanState extends State<ExamPlan> {
 
   Future<File> loadFromNetwork(String plan) async {
     final response = await http
-        .get(Uri.http('janw.bplaced.net', 'annetteapp/data/$plan.pdf'));
+        .get(Uri.http('annette-app-files.vercel.app', '$plan.pdf'));
     final bytes = response.bodyBytes;
     return _storeFile(plan, bytes);
   }
